@@ -1,0 +1,42 @@
+module midway8080_memory_adapter_code (
+    input wire [9:0] input_x_address,
+    input wire [8:0] input_y_address,
+    output wire [7:0] output_x_address,
+    output wire [4:0] output_y_address,
+    input wire [7:0] raw_data_from_midway8080_memory,
+    output wire [31:0] rgb_data_out);
+
+    // assign output_x_address = input_x_address[7:0];
+    // // assign output_x_address[7] = input_x_address[0];
+    // // assign output_x_address[6] = input_x_address[1];
+    // // assign output_x_address[5] = input_x_address[2];
+    // // assign output_x_address[4] = input_x_address[3];
+    // // assign output_x_address[3] = input_x_address[4];
+    // // assign output_x_address[2] = input_x_address[5];
+    // // assign output_x_address[1] = input_x_address[6];
+    // // assign output_x_address[0] = input_x_address[7];
+
+    // assign output_y_address = input_y_address[4:0];
+    // // assign output_y_address[4] = input_y_address[0];
+    // // assign output_y_address[3] = input_y_address[1];
+    // // assign output_y_address[2] = input_y_address[2];
+    // // assign output_y_address[1] = input_y_address[3];
+    // // assign output_y_address[0] = input_y_address[4];
+
+    // // wire pixel = raw_data_from_midway8080_memory[input_y_address[2:0]];
+    // wire pixel_bit = raw_data_from_midway8080_memory[input_y_address[2:0]];
+    // assign rgb_data_out = {30{pixel_bit}};
+
+    wire [7:0] pixel_x = input_x_address * 8'd32 / 10'd640; // 0-31
+    wire [7:0] pixel_y = input_y_address * 8'd224 / 9'd480; // 0-223
+    
+    // Midway memory addressing:
+    assign output_x_address = pixel_x; // Which byte (0-31)
+    assign output_y_address = {pixel_y[7:3]}; 
+    
+    // Get the specific pixel bit
+    wire pixel = raw_data_from_midway8080_memory[pixel_x[2:0]];
+    
+    assign rgb_data_out = {30{pixel}, 2'b00};
+
+endmodule
