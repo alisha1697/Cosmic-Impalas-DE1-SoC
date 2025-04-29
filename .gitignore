@@ -1,0 +1,25 @@
+# Quartus auto-generated build files
+*.rpt
+*.smsg
+*.summary
+*.qarlog
+*.sip
+*.spd
+*.jdi
+*.qws
+*.qdf
+*.done
+*.pin
+*.sld
+
+# Backups and temp
+*.bak
+*.log
+*.swp
+
+# Auto-generated synthesis and IP config files
+*.sopcinfo
+
+# Simulation/debug junk
+c5_pin_model_dump.txt
+cr_ie_info.json
