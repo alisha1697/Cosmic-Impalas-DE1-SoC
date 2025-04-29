@@ -1,4 +1,4 @@
-# 🚀 Cosmic Impalas: DE1-SoC Final Project
+# Cosmic Impalas: DE1-SoC Final Project
 
 **Author:** Alisha Siddiqui  
 **Course:** CPEN 412 @ University of British Columbia  
@@ -16,7 +16,7 @@ The implementation required integrating:
 - Embedded C software to run the game logic
 
 
-## 🛠 Main Components
+## Main Components
 
 - **FPGA Hardware**
   - VGA pixel buffer memory (custom dual-port and shadow memories)
@@ -43,7 +43,7 @@ The implementation required integrating:
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 | Item | Description |
 |:---|:---|
